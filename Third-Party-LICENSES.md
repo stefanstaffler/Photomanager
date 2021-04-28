@@ -8,4 +8,5 @@ which are licensed under their own respective open-source licenses.
 
 ### JavaFX
 License: GPLv2 with Classpath Exception
+
 http://openjdk.java.net/legal/gplv2+ce.html
