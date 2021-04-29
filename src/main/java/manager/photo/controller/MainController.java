@@ -7,6 +7,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import manager.photo.data.file.DirectoryControl;
+import manager.photo.model.BaseModel;
 import manager.photo.view.BaseView;
 
 public class MainController extends BaseController {
@@ -15,8 +16,8 @@ public class MainController extends BaseController {
     @FXML
     private MenuItem closeMenuItem;
 
-    public MainController(BaseView mainView) {
-        super(mainView);
+    public MainController(BaseView mainView, BaseModel mainModel) {
+        super(mainView, mainModel);
     }
 
     @FXML
