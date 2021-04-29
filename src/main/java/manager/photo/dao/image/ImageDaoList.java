@@ -14,16 +14,16 @@ public class ImageDaoList implements ImageDaoInterface {
 
     @Override
     public void addImage(Image image) {
-
+        imageList.add(image);
     }
 
     @Override
     public void removeImage(Image image) {
-
+        imageList.remove(image);
     }
 
     @Override
     public List<Image> getAllImages() {
-        return null;
+        return imageList;
     }
 }
