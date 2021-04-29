@@ -11,13 +11,7 @@ public class BaseView {
 
     public BaseView() {
         String filename = getClass().getSimpleName();
-
         fxmlLoader = new FXMLLoader(getClass().getResource(filename + ".fxml"));
-        try {
-            rootViewPane = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public Pane getRootViewPane() {
@@ -26,5 +20,13 @@ public class BaseView {
 
     public FXMLLoader getFxmlLoader() {
         return fxmlLoader;
+    }
+
+    public void load() {
+        try {
+            rootViewPane = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -9,5 +9,6 @@ public class BaseController {
         this.baseView = baseView;
 
         baseView.getFxmlLoader().setController(this);
+        baseView.load();
     }
 }
