@@ -7,8 +7,14 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import manager.photo.data.file.DirectoryControl;
+import manager.photo.data.file.FileReader;
 import manager.photo.model.BaseModel;
 import manager.photo.view.BaseView;
+
+import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.util.List;
 
 public class MainController extends BaseController {
     @FXML
@@ -35,6 +41,8 @@ public class MainController extends BaseController {
 
     private void open(Window window) {
         DirectoryControl directoryControl = new DirectoryControl("Open image directory");
-        directoryControl.openDirectoryChooser(window);
+        File file = directoryControl.openDirectoryChooser(window);
+
+        List<BufferedImage> bufferedImageList = FileReader.getBufferedImages(file);
     }
 }

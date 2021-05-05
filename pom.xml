@@ -36,6 +36,19 @@
                     <configuration>
                         <mainClass>manager.photo.Main</mainClass>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>run</id>
+                        </execution>
+                        <execution>
+                            <id>debug</id>
+                            <configuration>
+                                <options>
+                                    <option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:8000</option>
+                                </options>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
