@@ -3,16 +3,19 @@ package manager.photo.controller;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import manager.photo.data.file.DirectoryControl;
 import manager.photo.data.file.FileReader;
+import manager.photo.data.image.Image;
 import manager.photo.model.BaseModel;
+import manager.photo.model.MainModel;
 import manager.photo.view.BaseView;
 
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.util.List;
 
@@ -21,6 +24,8 @@ public class MainController extends BaseController {
     private MenuItem openMenuItem;
     @FXML
     private MenuItem closeMenuItem;
+    @FXML
+    private ListView<ImageView> imageListView;
 
     public MainController(BaseView mainView, BaseModel mainModel) {
         super(mainView, mainModel);
@@ -44,5 +49,12 @@ public class MainController extends BaseController {
         File file = directoryControl.openDirectoryChooser(window);
 
         List<BufferedImage> bufferedImageList = FileReader.getBufferedImages(file);
+        MainModel mainModel = (MainModel) baseModel;
+
+        for (BufferedImage bufferedImage : bufferedImageList) {
+            Image image = new Image();
+            image.setBufferedImage(bufferedImage);
+            mainModel.addImage(image);
+        }
     }
 }
