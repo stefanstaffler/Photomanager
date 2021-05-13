@@ -14,6 +14,7 @@ import manager.photo.data.image.Image;
 import manager.photo.model.BaseModel;
 import manager.photo.model.MainModel;
 import manager.photo.view.BaseView;
+import manager.photo.view.MainView;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,8 +25,8 @@ public class MainController extends BaseController {
     private MenuItem openMenuItem;
     @FXML
     private MenuItem closeMenuItem;
-    @FXML
-    private ListView<ImageView> imageListView;
+
+    private ImagesControllerInterface imagesController;
 
     public MainController(BaseView mainView, BaseModel mainModel) {
         super(mainView, mainModel);
@@ -56,5 +57,11 @@ public class MainController extends BaseController {
             image.setBufferedImage(bufferedImage);
             mainModel.addImage(image);
         }
+
+        imagesController = new ListImagesColumnController();
+        imagesController.loadImages(mainModel.getAllImages());
+
+        MainView mainView = (MainView) baseView;
+        mainView.showImages(imagesController.getViewPane());
     }
 }

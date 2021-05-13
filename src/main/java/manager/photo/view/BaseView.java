@@ -6,7 +6,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 
 public class BaseView {
-    private Pane rootViewPane;
+    protected Pane rootViewPane;
     private FXMLLoader fxmlLoader;
 
     public BaseView() {
